@@ -1,0 +1,17 @@
+{
+  "name": "search-typeahead",
+  "version": "1.0.0",
+  "description": "A search typeahead system with a distributed cache (consistent hashing), trending searches and batch writes.",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node --max-old-space-size=2048 src/server.js",
+    "generate-data": "node scripts/generate-dataset.js",
+    "benchmark": "node scripts/benchmark.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}
