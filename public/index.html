@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Search Typeahead</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="app">
+    <header>
+      <h1>Search Typeahead<span class="dot">.</span></h1>
+      <p class="subtitle">Start typing for instant suggestions. Flip the ranking to watch recency take over.</p>
+    </header>
+
+    <!-- Ranking mode: this is the basic-vs-enhanced switch from the spec. -->
+    <div class="mode-switch" role="tablist" aria-label="Ranking mode">
+      <button class="mode-btn active" data-rank="popular" role="tab">Popular</button>
+      <button class="mode-btn" data-rank="recent" role="tab">Trending (recent first)</button>
+    </div>
+    <p class="mode-hint" id="mode-hint">Ranked by all-time popularity (overall search count).</p>
+
+    <div class="search-row">
+      <div class="search-box">
+        <input
+          id="search-input"
+          type="text"
+          placeholder="Try 'iph', 'lap', 'nike'..."
+          autocomplete="off"
+          aria-label="Search"
+        />
+        <ul id="suggestions" class="suggestions hidden" role="listbox"></ul>
+      </div>
+      <button id="search-btn">Search</button>
+    </div>
+
+    <div id="status" class="status"></div>
+    <div id="result" class="result hidden"></div>
+
+    <section class="trending">
+      <h2>Trending now</h2>
+      <p class="hint">Ranked purely by recent activity (it decays over time). Search a few queries and watch this move.</p>
+      <ol id="trending-list" class="trending-list">
+        <li class="empty">No trending searches yet — submit a few searches to see them appear.</li>
+      </ol>
+    </section>
+
+    <footer class="note">Tip: search a query a couple of times, then switch to “Trending” — it climbs the suggestions, then fades back.</footer>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
